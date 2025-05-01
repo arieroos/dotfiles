@@ -353,7 +353,7 @@ globalkeys = gears.table.join(
 
 	-- Prompt
 	awful.key({ modkey }, "r", function()
-		awful.screen.focused().mypromptbox:run()
+		awful.util.spawn("rofi -show drun")
 	end, { description = "run prompt", group = "launcher" }),
 
 	awful.key({ modkey }, "x", function()
@@ -600,4 +600,3 @@ client.connect_signal("unfocus", function(c)
 	c.border_color = beautiful.border_normal
 end)
 -- }}}
-
