@@ -36,6 +36,7 @@ config.keys = {
 		action = actions.ActivateKeyTable({
 			name = "resize_pane",
 			one_shot = false,
+			timeout_milliseconds = 1000 * 60, -- one minute
 		}),
 	},
 }
