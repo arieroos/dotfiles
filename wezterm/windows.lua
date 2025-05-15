@@ -1,13 +1,16 @@
 local wezterm = require("wezterm")
 
-local module = {}
+return {
+	setup = function(config)
+		if wezterm.target_triple ~= "x86_64-pc-windows-msvc" then
+			-- This is not Windows, let's return
+			return
+		end
 
-local mux = wezterm.mux
-
-function module.open_window(cmd)
-	local _, _, window = mux.spawn_window(cmd or {})
-	-- Open maximized
-	window:gui_window():maximize()
-end
-
-return module
+		if os.execute("where pwsh.exe") then
+			config.default_prog = { "pwsh.exe" }
+		elseif os.execute("where powershell.exe") then
+			config.default_prog = { "powershell.exe" }
+		end
+	end,
+}
