@@ -47,14 +47,7 @@ return {
     require('telescope').setup {
       --  All the info you're looking for is in `:help telescope.setup()`
       defaults = {
-        file_ignore_patterns = {
-          -- git folder
-          '/.git/',
-          '.git/',
-          -- node_modules
-          '/node_modules/',
-          'node_modules',
-        },
+        file_ignore_patterns = { '.git' },
       },
       extensions = {
         ['ui-select'] = {
@@ -63,7 +56,7 @@ return {
       },
       pickers = {
         find_files = {
-          hidden = true,
+          find_command = { 'rg', '--files', '--no-ignore-vcs', '--hidden' },
         },
       },
     }
