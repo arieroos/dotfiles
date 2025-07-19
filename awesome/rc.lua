@@ -134,12 +134,11 @@ mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = myma
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
 
--- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
-
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
+
+local volume_widget = require("volume-widget.volume")
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -254,8 +253,10 @@ awful.screen.connect_for_each_screen(function(s)
 		s.mytasklist, -- Middle widget
 		{ -- Right widgets
 			layout = wibox.layout.fixed.horizontal,
-			mykeyboardlayout,
 			wibox.widget.systray(),
+			volume_widget({
+				widget_type = "arc",
+			}),
 			mytextclock,
 			s.mylayoutbox,
 		},
@@ -600,4 +601,3 @@ client.connect_signal("unfocus", function(c)
 	c.border_color = beautiful.border_normal
 end)
 -- }}}
-
