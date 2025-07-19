@@ -8,7 +8,7 @@
 
 font-size = 11
 font-family = "FantasqueSansM Nerd Font Mono"
-fullscreen = true
+window-decoration = none
 
 # Config syntax crash course
 # ==========================
