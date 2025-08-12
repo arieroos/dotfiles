@@ -9,6 +9,7 @@
 font-size = 11
 font-family = "FantasqueSansM Nerd Font Mono"
 window-decoration = none
+theme = "night-owl"
 
 # Config syntax crash course
 # ==========================
