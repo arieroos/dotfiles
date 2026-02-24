@@ -145,6 +145,13 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- Open the Oil File Eplorer in floating mode
 vim.keymap.set('n', '<leader>o', '<cmd>Oil --float<CR>', { desc = 'Open the [O]il file explorer' })
 
+-- File Types
+vim.filetype.add {
+  extension = {
+    ['http'] = 'http',
+  },
+}
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
