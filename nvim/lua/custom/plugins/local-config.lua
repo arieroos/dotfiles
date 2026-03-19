@@ -1,5 +1,6 @@
 return {
   'klen/nvim-config-local',
+  priority = 100,
   config = function()
     require('config-local').setup {
       config_files = { '.nvim.lua' },
